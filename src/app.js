@@ -15,14 +15,13 @@ const app = () => {
         return;
     }
 
-
-    if (!cassinoTipsCookieExists()) {
-        return;
-    }
-
-    const cassinoTipsCookie = getCassinoTipsCookie();
-
-    console.log(cassinoTipsCookie);
+    // if (!cassinoTipsCookieExists()) {
+    //     return;
+    // }
+    //
+    // const cassinoTipsCookie = getCassinoTipsCookie();
+    //
+    // console.log(cassinoTipsCookie);
 
 
     initializeHeader();
@@ -73,4 +72,4 @@ const getCassinoTipsCookie = () => {
     return JSON.parse(cassinoTipsCookie);
 };
 
-window.addEventListener('DOMContentLoaded', app);
+window.cassinoTips = app();
