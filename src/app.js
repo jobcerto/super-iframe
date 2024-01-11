@@ -72,4 +72,4 @@ const getCassinoTipsCookie = () => {
     return JSON.parse(cassinoTipsCookie);
 };
 
-window.cassinoTips = app();
+window.addEventListener('DOMContentLoaded', app);

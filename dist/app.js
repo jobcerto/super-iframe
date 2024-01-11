@@ -5469,7 +5469,7 @@ var getCassinoTipsCookie = function getCassinoTipsCookie() {
   var cassinoTipsCookie = js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].get('cassinotips');
   return JSON.parse(cassinoTipsCookie);
 };
-window.cassinoTips = app();
+window.addEventListener('DOMContentLoaded', app);
 })();
 
 /******/ })()
