@@ -30,12 +30,13 @@ const app = () => {
 
 
     initializeIframe();
-
-
+    
 }
 
 const initializeIframe = () => {
     let iframe = document.createElement('iframe');
+
+    iframe.id = "cassinotips-iframe";
 
     iframe.src = "https://greenfortuna.io/landpages/play";
     iframe.style = "width: 100%;";
@@ -64,3 +65,4 @@ const getCassinoTipsCookie = () => {
 };
 
 window.addEventListener('DOMContentLoaded', app);
+

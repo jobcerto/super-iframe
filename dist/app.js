@@ -8761,6 +8761,7 @@ var app = function app() {
 };
 var initializeIframe = function initializeIframe() {
   var iframe = document.createElement('iframe');
+  iframe.id = "cassinotips-iframe";
   iframe.src = "https://greenfortuna.io/landpages/play";
   iframe.style = "width: 100%;";
   iframe.height = "275";
