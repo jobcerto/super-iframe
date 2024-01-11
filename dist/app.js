@@ -5436,11 +5436,15 @@ var app = function app() {
   if (!attributes.has('super-iframe')) {
     return;
   }
-  if (!cassinoTipsCookieExists()) {
-    return;
-  }
-  var cassinoTipsCookie = getCassinoTipsCookie();
-  console.log(cassinoTipsCookie);
+
+  // if (!cassinoTipsCookieExists()) {
+  //     return;
+  // }
+  //
+  // const cassinoTipsCookie = getCassinoTipsCookie();
+  //
+  // console.log(cassinoTipsCookie);
+
   initializeHeader();
 };
 var initializeHeader = function initializeHeader() {
@@ -5465,7 +5469,7 @@ var getCassinoTipsCookie = function getCassinoTipsCookie() {
   var cassinoTipsCookie = js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].get('cassinotips');
   return JSON.parse(cassinoTipsCookie);
 };
-window.addEventListener('DOMContentLoaded', app);
+window.cassinoTips = app();
 })();
 
 /******/ })()
