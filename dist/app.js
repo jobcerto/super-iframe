@@ -8757,15 +8757,15 @@ var app = function app() {
   //
   // console.log(cassinoTipsCookie);
 
-  initializeHeader();
+  initializeIframe();
 };
-var initializeHeader = function initializeHeader() {
-  var cassinoTipsHeader = document.createElement('div');
-  cassinoTipsHeader.innerHTML = "<header class=\"tw-antialiased tw-text-base tw-text-green-400 tw-font-sans tw-bg-green-950 tw-shadow-lg tw-border-b-4 tw-border-green-900 tw-h-24 tw-px-4 lg:tw-px-0 tw-py-4 tw-flex tw-items-center tw-sticky tw-top-0 tw-z-50 tw-relative\">\n\n    <div class=\"tw-container tw-mx-auto tw-flex tw-items-center tw-justify-between\">\n        <a href=\"#\">\n            <img src=\"https://cassinotips.com.br/images/greenfortuna.png\" alt=\"Cassino Tips\" class=\"tw-h-10 sm:tw-h-12 md:tw-h-16\">\n        </a>\n\n        <nav class=\"tw-inline-flex tw-items-center tw-gap-x-4 md:tw-gap-x-8\">\n            <a href=\"#\">\n                <span class=\"far fa-bell tw-text-2xl\"></span>\n            </a>\n            <span class=\"tw-bg-gray-800 tw-border tw-border-2 tw-border-green-700 tw-text-green-500 tw-rounded-md tw-px-1.5 md:tw-px-3 tw-py-1.5 tw-text-xs md:tw-text-sm\">Sincronizado</span>\n\n            <a href=\"#\" class=\"tw-inline-flex tw-rounded-full tw-items-center tw-justify-center tw-w-12 tw-h-12 tw-bg-gray-800\">\n                <i class=\"far fa-user\"></i>\n            </a>\n        </nav>\n    </div>\n\n    <nav>\n\n</nav>\n</header>\n<section  x-data=\"{\n            secondsBeforeNextSignal:0,\n            seconds(seconds) {\n               this.secondsBeforeNextSignal = seconds;\n            },\n            countdown() {\n                if (this.secondsBeforeNextSignal > 0) {\n                    this.secondsBeforeNextSignal--;\n                }\n            }\n        }\" x-init=\"setInterval(() => countdown(), 1000)\" class=\"tw-h-full tw-py-4\">\n    <nav class=\"tw-font-sans tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-4 tw-w-full\" x-show.transition=\"secondsBeforeNextSignal !== 0\" style=\"display: none;\">\n\n       <div class=\"tw-bg-green-900 tw-rounded-md tw-px-4 tw-py-6 tw-text-xl tw-font-bold tw-text-green-200\">\n            \uD83D\uDD51 V\xE1lido at\xE9: 11:33\n        </div>\n            <div class=\"tw-bg-green-900 tw-rounded-md tw-px-4 tw-py-6 tw-text-xl tw-font-bold tw-text-green-200\">\n            \uD83D\uDC49 7x Normal\n        </div>\n            <div class=\"tw-bg-green-900 tw-rounded-md tw-px-4 tw-py-6 tw-text-xl tw-font-bold tw-text-green-200\">\n            \u26A1 9x Turbo\n        </div>\n            <div class=\"tw-bg-green-900 tw-rounded-md tw-px-4 tw-py-6 tw-text-xl tw-font-bold tw-text-green-200\">\n            \uD83C\uDFB2 N\xBA de Jogadas: 12\n        </div>\n  \n</nav>\n    <div class=\"tw-w-full tw-flex tw-items-center tw-justify-center tw-mt-4\">\n    <button x-show=\"secondsBeforeNextSignal !== 0\" type=\"button\" class=\"tw-w-full tw-bg-green-950 tw-text-center tw-text-green-500 tw-rounded-md tw-p-3 tw-text-xl tw-font-medium\" disabled=\"\" style=\"display: none;\">\n        <i class=\"fas fa-spin fa-spinner\"></i> Aguarde\n        <span x-text=\"secondsBeforeNextSignal\">0</span> para gerar novo sinal\n    </button>\n\n    <button @click=\"seconds(179)\" x-show=\"secondsBeforeNextSignal === 0\" type=\"button\" class=\"tw-w-full tw-bg-green-700 tw-text-center tw-text-white tw-rounded-md tw-p-3 tw-text-xl tw-font-bold\">\n        <i class=\"far fa-check-circle\"></i> GERAR SINAL\n    </button>\n</div>\n\n    \n</section>\n\n\n";
+var initializeIframe = function initializeIframe() {
+  var iframe = document.createElement('iframe');
+  iframe.src = "https://greenfortuna.io/landpages/play";
+  iframe.style = "width: 100%;";
+  iframe.height = "275";
   var header = document.getElementById('fe_web_container');
-  header.className = 'cassinotips';
-  cassinoTipsHeader.className = 'tw-bg-green-975';
-  insertNodeAfter(cassinoTipsHeader, header);
+  insertNodeAfter(iframe, header);
 };
 var insertNodeAfter = function insertNodeAfter(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode);
