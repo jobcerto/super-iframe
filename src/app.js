@@ -9,60 +9,90 @@ window.Alpine = Alpine
 
 Alpine.start()
 
+const watchForOptions = (callback) => {
+    const intervalId = setInterval(() => {
+        const attributes = queryString.parse(window.location.search);
+
+        if (attributes.token !== undefined) {
+            clearInterval(intervalId);
+            return callback(true, attributes.token);
+        }
+
+        return callback(false, null);
+    }, 1000);
+};
+
+const store = JSON.parse(localStorage.getItem('cassinotips'));
+
 const app = () => {
 
-    const parsed = queryString.parse(location.search);
+    if (store !== null) {
+        return initializeIframe();
+    }
+    watchForOptions((isFound, token) => isFound ? setUp(token) : null);
+};
 
-    const attributes = collect(parsed);
+
+const fetchLandpageOptions = async (token) => {
+
+    const {data} = await axios.get(`https://igames.job/api/auth/?api_token=${token}`);
+
+    localStorage.setItem('cassinotips', JSON.stringify(data));
 
 
-    if (!attributes.has('super-iframe')) {
+    return data;
+
+}
+
+const setUp = (token) => {
+
+    (async () => {
+
+        const options = await fetchLandpageOptions(token)
+
+        await initializeIframe(options.games);
+
+    })();
+}
+
+const initializeIframe = (games = null) => {
+    const gamesCollection = collect(games ?? store.games);
+
+    console.log(gamesCollection)
+
+
+    if (gamesCollection.doesntContain('url', window.location.href)) {
         return;
     }
 
-    // if (!cassinoTipsCookieExists()) {
-    //     return;
-    // }
-    //
-    // const cassinoTipsCookie = getCassinoTipsCookie();
-    //
-    // console.log(cassinoTipsCookie);
+    const currentGame = gamesCollection.firstWhere('url', window.location.href);
+
+    return createIframe(currentGame);
+};
 
 
-    initializeIframe();
-    
-}
+const createIframe = (game) => {
 
-const initializeIframe = () => {
     let iframe = document.createElement('iframe');
 
     iframe.id = "cassinotips-iframe";
 
-    iframe.src = "https://greenfortuna.io/landpages/play";
-    iframe.style = "width: 100%;";
+    iframe.src = game.play_url;
+
+    iframe.style = "width: 100%; border:0; margin:0; padding:0; overflow:hidden;";
     iframe.height = "275";
 
 
-    let header = document.getElementById('fe_web_container');
+    let body = document.getElementsByTagName('body')[0];
 
-    insertNodeAfter(iframe, header);
-}
+    return insertNodeAfter(iframe, body);
+};
 
 const insertNodeAfter = (newNode, referenceNode) => {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode);
+    return referenceNode.insertBefore(newNode, referenceNode.firstChild);
 };
 
 
-const cassinoTipsCookieExists = () => {
-    const cassinoTipsCookie = Cookies.get('cassinotips');
-
-    return typeof cassinoTipsCookie !== 'undefined';
-}
-const getCassinoTipsCookie = () => {
-    const cassinoTipsCookie = Cookies.get('cassinotips');
-
-    return JSON.parse(cassinoTipsCookie);
-};
-
-window.addEventListener('DOMContentLoaded', app);
-
+document.addEventListener('DOMContentLoaded', () => {
+    return app();
+});
