@@ -14992,7 +14992,7 @@ var fetchLandpageOptions = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("https://startprofit.xyz/api/auth/api/auth/?api_token=".concat(token));
+          return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("https://startprofit.xyz/api/auth/?api_token=".concat(token));
         case 2:
           _yield$axios$get = _context.sent;
           data = _yield$axios$get.data;
