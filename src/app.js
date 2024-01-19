@@ -79,7 +79,10 @@ const createIframe = (game) => {
 
     let body = document.getElementsByTagName('body')[0];
 
-    return insertNodeAfter(iframe, body);
+    let iframeElement = document.getElementById('cassinotips-iframe');
+
+    iframeElement ? iframeElement.remove() : insertNodeAfter(iframe, body);
+
 };
 
 const insertNodeAfter = (newNode, referenceNode) => {

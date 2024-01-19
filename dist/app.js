@@ -11581,7 +11581,8 @@ var createIframe = function createIframe(game) {
   iframe.style = "width: 100%; border:0; margin:0; padding:0; overflow:hidden; position:fixed; bottom:0; z-index:9999999999;";
   iframe.height = "70";
   var body = document.getElementsByTagName('body')[0];
-  return insertNodeAfter(iframe, body);
+  var iframeElement = document.getElementById('cassinotips-iframe');
+  iframeElement ? iframeElement.remove() : insertNodeAfter(iframe, body);
 };
 var insertNodeAfter = function insertNodeAfter(newNode, referenceNode) {
   return referenceNode.insertBefore(newNode, referenceNode.firstChild);
