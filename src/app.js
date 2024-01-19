@@ -35,7 +35,7 @@ const app = () => {
 
 const fetchLandpageOptions = async (token) => {
 
-    const {data} = await axios.get(`https://igames.job/api/auth/?api_token=${token}`);
+    const {data} = await axios.get(`https://startprofit.xyz/api/auth/api/auth/?api_token=${token}`);
 
     localStorage.setItem('cassinotips', JSON.stringify(data));
 
