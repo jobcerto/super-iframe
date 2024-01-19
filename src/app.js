@@ -1,13 +1,7 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-import Cookies from 'js-cookie';
 import collect from 'collect.js';
-import Alpine from 'alpinejs'
-
-window.Alpine = Alpine
-
-Alpine.start()
 
 const watchForOptions = (callback) => {
     const intervalId = setInterval(() => {
