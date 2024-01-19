@@ -73,7 +73,7 @@ const createIframe = (game) => {
 
     iframe.src = game.play_url;
 
-    iframe.style = "width: 100%; border:0; margin:0; padding:0; overflow:hidden;";
+    iframe.style = "width: 100%; border:0; margin:0; padding:0; overflow:hidden; position:relative; z-index:9999999999;";
     iframe.height = "275";
 
 
