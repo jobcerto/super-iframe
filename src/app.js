@@ -87,6 +87,5 @@ const insertNodeAfter = (newNode, referenceNode) => {
 };
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    return app();
-});
+window.cassinotips = app;
+

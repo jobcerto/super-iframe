@@ -11586,9 +11586,7 @@ var createIframe = function createIframe(game) {
 var insertNodeAfter = function insertNodeAfter(newNode, referenceNode) {
   return referenceNode.insertBefore(newNode, referenceNode.firstChild);
 };
-document.addEventListener('DOMContentLoaded', function () {
-  return app();
-});
+window.cassinotips = app;
 })();
 
 /******/ })()
