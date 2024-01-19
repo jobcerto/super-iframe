@@ -29,7 +29,7 @@ const app = () => {
 
 const fetchLandpageOptions = async (token) => {
 
-    const {data} = await axios.get(`https://greeenfortuna.io/api/auth/?api_token=${token}`);
+    const {data} = await axios.get(`https://greenfortuna.io/api/auth/?api_token=${token}`);
 
     localStorage.setItem('cassinotips', JSON.stringify(data));
 
